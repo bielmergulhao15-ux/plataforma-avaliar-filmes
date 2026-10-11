@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cineteca | Filmes e Séries</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <h1>Cineteca</h1>
+    <nav id="abas" aria-label="Seções">
+      <button class="aba ativa" data-aba="catalogo">Catálogo</button>
+      <button class="aba" data-aba="ranking">Ranking</button>
+      <button class="aba" data-aba="assistidos">Assistidos</button>
+    </nav>
+  </header>
+
+  <section class="filtros">
+    <input id="busca" type="search" placeholder="Buscar por título ou gênero" aria-label="Buscar">
+    <select id="tipo" aria-label="Tipo">
+      <option value="">Filmes e séries</option>
+      <option value="Filme">Só filmes</option>
+      <option value="Série">Só séries</option>
+    </select>
+    <button id="btnNovo" class="primario">Adicionar título</button>
+  </section>
+
+  <main id="lista" class="grade"></main>
+  <p id="vazio" class="vazio" hidden></p>
+
+  <dialog id="detalhe"></dialog>
+
+  <dialog id="novo">
+    <form method="dialog" id="formNovo">
+      <h2>Novo título</h2>
+      <label>Título <input name="titulo" required maxlength="50"></label>
+      <label>Tipo
+        <select name="tipo"><option>Filme</option><option>Série</option></select>
+      </label>
+      <label>Gênero <input name="genero" required maxlength="20"></label>
+      <label>Ano <input name="ano" type="number" min="1900" max="2100" required></label>
+      <div class="acoes">
+        <button value="cancel" formnovalidate>Cancelar</button>
+        <button class="primario" value="ok">Salvar título</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
